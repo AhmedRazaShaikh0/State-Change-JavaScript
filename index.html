@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv">
+        <h1 id="countDisplay">Count: 0</h1>
+        <button id="incrementButton">Increment Count</button>
+    </div>
+    <script>
+        let state = { count: 0, class: 'my-class' };
+
+        // Get DOM elements
+        const countDisplay = document.getElementById("countDisplay");
+        const incrementButton = document.getElementById("incrementButton");
+
+        // Update the DOM with the current state
+        countDisplay.textContent = `Count: ${state.count}`;
+        countDisplay.classList.add(state.class);
+
+        // Add event listener to button to update state and DOM
+        incrementButton.addEventListener("click", () => {
+            state.count += 1;
+
+            // Change class based on count
+            if (state.count % 2 === 0) {
+                state.class = 'my-class';
+            } else {
+                state.class = 'my-other-class';
+            }
+
+            countDisplay.textContent = `Count: ${state.count}`;
+            countDisplay.className = state.class;
+        });
+
+    </script>
+    <style>
+        .my-class {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</body>
+
+</html>
